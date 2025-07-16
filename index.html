@@ -11,11 +11,13 @@
             font-family: 'Noto Sans KR', sans-serif;
             background-color: #f7f7f5;
             color: #37352f;
-            line-height: 1.6;
+            line-height: 1.7;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
+            /* --- 기준: 일반 본문 폰트 크기 (약 12pt) --- */
+            font-size: 16px; 
         }
 
         .container {
@@ -28,211 +30,122 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
-        h1 {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #6a0dad;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
+        h1 { font-size: 2.5em; font-weight: 700; color: #6a0dad; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
+        h2 { font-size: 1.8em; font-weight: 700; color: #333; padding-bottom: 8px; margin-top: 50px; margin-bottom: 20px; border-bottom: 1px solid #f0f0f0; }
+        h2 .icon { margin-right: 12px; font-style: normal; }
 
-        h2 {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #333;
-            padding-bottom: 8px;
-            margin-top: 50px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #f0f0f0;
-        }
+        .intro-quote { text-align: center; font-style: italic; color: #777; background-color: #fafafa; border-left: 3px solid #ddd; padding: 15px 20px; margin: 25px 0; border-radius: 4px; }
         
-        h2 .icon {
-            margin-right: 12px;
-            font-style: normal;
-        }
+        strong { color: #8a3ffc; font-weight: 700; }
 
-        .intro-quote {
-            text-align: center;
-            font-style: italic;
-            color: #777;
-            background-color: #fafafa;
-            border-left: 3px solid #ddd;
-            padding: 15px 20px;
-            margin: 25px 0;
-            border-radius: 4px;
-        }
-        
-        strong {
-            color: #8a3ffc; /* 포인트 컬러 */
-            font-weight: 700;
-        }
-
+        /* 공통 하이라이트 박스 스타일 */
         .highlight-box {
             background-color: rgba(138, 63, 252, 0.07);
             border-left: 4px solid #8a3ffc;
-            padding: 20px;
+            padding: 20px 25px;
             margin: 25px 0;
             border-radius: 5px;
         }
-
-        .highlight-box p {
-            margin: 10px 0;
-        }
+        .highlight-box p:first-child, .highlight-box li:first-child { margin-top: 0; }
+        .highlight-box p:last-child, .highlight-box li:last-child { margin-bottom: 0; }
         
-        .highlight-box p:first-child { margin-top: 0; }
-        .highlight-box p:last-child { margin-bottom: 0; }
-
-        details {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            transition: all 0.2s ease-in-out;
-        }
-        
-        details[open] {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        /* --- 수정 1: 일반 강조 박스 (본문보다 2pt 크게) --- */
+        .highlight-box.level-1 p, .highlight-box.level-1 li {
+            font-size: 18px; /* 약 13.5pt */
         }
 
-        summary {
-            font-size: 1.1em;
+        /* --- 수정 2: 특별 강조 박스 (본문보다 4pt 크게) --- */
+        .highlight-box.level-2 p {
+            font-size: 21px; /* 약 15.75pt */
             font-weight: 500;
-            padding: 15px 20px;
-            cursor: pointer;
-            list-style-type: '▶ ';
-            color: #333;
+            line-height: 1.8;
         }
+
+        details { border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 20px; transition: all 0.2s ease-in-out; }
+        details[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        summary { font-size: 1.1em; font-weight: 500; padding: 15px 20px; cursor: pointer; list-style-type: '▶ '; color: #333; }
+        details[open] summary { list-style-type: '▼ '; color: #8a3ffc; }
+        .video-content { padding: 0 20px 20px 40px; border-top: 1px solid #eee; }
         
-        details[open] summary {
-            list-style-type: '▼ ';
-            color: #8a3ffc;
-        }
-        
-        .video-content {
-            padding: 0 20px 20px 40px;
-            border-top: 1px solid #eee;
-        }
-        
+        /* 인라인 코드 블록은 부모의 글씨 크기를 따라가도록 수정 (더 이상 작아지지 않음) */
         code {
+            font-size: 1em; 
             background-color: #f0f0f0;
             color: #555;
             padding: 3px 6px;
             border-radius: 4px;
-            font-size: 0.9em;
         }
 
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
-        
-        hr {
-            border: 0;
-            border-top: 1px solid #eee;
-            margin: 60px 0;
-        }
-
-        .final-verdict {
-            background: linear-gradient(135deg, #f3e8ff, #faf6ff);
-            border: 1px solid #e9d5ff;
-            padding: 25px;
-            border-radius: 8px;
-            text-align: center;
-        }
+        ul { list-style-type: disc; padding-left: 25px; }
+        li { margin-bottom: 12px; }
+        hr { border: 0; border-top: 1px solid #eee; margin: 60px 0; }
 
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>
-            <span class="icon">🎀</span> 스위트 레이디
-        </h1>
-
+        <h1><span class="icon">🎀</span> 스위트 레이디</h1>
         <div class="intro-quote">
             <p>"가진돌 다 부어봤지만, 결국 못먹어서<br>클체 + 만물성보 3개 Flex 로 성각시켜주었습니다"</p>
             <p><strong>잔여 만물성보 : 0 개..</strong></p>
         </div>
-
         <hr>
-
-        <h2>
-            <span class="icon">🛡️</span> #1 : Zone 과 파티 안정성
-        </h2>
-        <p>적의 존을 파괴하고 즉시 각성존을 전개하는 패턴에 매우 효용이 높습니다. (특히, 풍속성 파티에서)</p>
-
+        <h2><span class="icon">🛡️</span> #1 : Zone 과 파티 안정성</h2>
+        <p>적의 존깨고 즉시 각성존 전개 패턴에 매우 효용이 높군요<br>( 특히, 풍속팟에서 )</p>
         <details>
             <summary>AS낫잡이 시연영상 #1 - Zone 과 파티 안정성 (어둠의 얼터포스 4턴)</summary>
             <div class="video-content">
-                <p style="color:#777;">(영상 링크가 여기에 표시됩니다. 진명 스포일러 주의)</p>
-                <div class="highlight-box">
-                    <p><strong>코멘트:</strong></p>
-                    <p><code>es시구레</code> 만으로는 탱킹이 부실할 때, AS낫잡이가 제공하는 강력한 유틸리티:</p>
-                    <ul>
-                        <li>적 <strong>힘/지능 60% 감소</strong></li>
-                        <li>아군 <strong>HP & MP 40% 증가</strong> (심기일체 효율 상승)</li>
-                        <li>아군 <strong>속성저항 60% & 데미지 50% 감소</strong></li>
-                        <li>SB-성도스킬 발동 후 <strong>2회 행동</strong></li>
-                        <li>어나더센스로 어포 게이지 효율 증가</li>
-                        <li>깨알같은 아군 실드 부여 (1,000 ~ 2,000)</li>
-                        <li><strong>상태이상 / 날리기 무효 3회</strong> (바람 속성 캐릭터 한정)</li>
-                    </ul>
-                    <p>특히, 공명 스택 3개 축적 시 <strong>일반공격이 <code>존 파괴 & 극풍왕진 전개</code></strong>로 변화하여 파티의 Zone 안정성을 높여주는 부분이 상당히 매력적입니다.</p>
+                <p style="color:#777;">영상 뒤에 셋팅 나와있긴합니다 (진명 스포주의)</p>
+                <div class="highlight-box level-1">
+                    <p><strong>코멘트 :</strong></p>
+                    <p>es시구레 만으로는 탱킹이 부실할때가 많은데, 어낫잡이가 힘지깎 60% / 아군 체력 +40% / 속성저항 +60% / 뎀감 50% 을 제공하며, 아군 MP도 +40% 늘려줘서 심기일체 효율도 늘려줍니다</p>
+                    <p>그리고 SB-성도스킬 발동 이후에는 2행동 공격이라는 점, 어나더센스로 어포게이지 효율을 늘려준다는 점, 깨알 아군 실드(1,000~2,000 수준) 를 부여한다는점, 상태이상 / 날리기 무효 3회를 제공한다는 점 등등의 유틸이 맛있습니다<br>( 단, 상태막이 / 날리기무효는 바람 캐릭에게만 제공됨 )</p>
+                    <p>특히, 일반공격 변화기로 존파괴 & 극풍왕진 전개 가 가능하여 파티의 Zone 안정성을 높여주는 부분이 상당히 매력적 입니다</p>
+                    <p style="font-size: 16px; font-weight: 400; color: #555;">(공명스택 3개 축적시 일반공격변화기 사용가능해짐)<br>(공명스택은 기본적으로 매턴 종료시 1개씩 자동축적, 그 외의 방법으로 축적하려면 절 풍왕진이 전개된 상황에서 활성화되는 공명스택 축적기(일반공격 변화기)를 다른 아군이 따로 사용해야함)<br>(극풍왕진 전개는 전열 4인모두 풍속성 캐릭일 경우에만 가능)</p>
                 </div>
-                <p><strong>+ TMI:</strong> 저 파티에서는 스텔라 버스트(SB)가 '명각' 상태로 모여 <strong>"턴 종료 시 적 전체 속도 100% 감소"</strong> 어빌리티가 <code>es시구레</code>의 회피 탱킹에 도움을 주지만, <code>es네코코</code>와 <code>es시구레</code>의 강력한 '천각' 어빌리티 효과를 받지 못하는 점은 아쉽습니다. 물리 저항 감소의 부재도 아쉬운 부분입니다.</p>
+                <p>es네코코가 디버프 리버설을 가지고 있어서 es시구레에게 따로 탱킹셋팅을 안해줘도 된다는 것도 보너스!</p>
+                <p><strong>+ TMI</strong><br>저 파티를 운영하면 SB(스텔라 버스트)가 명각 상태로 모여서 어낫잡이의 SB-명각 어빌 "턴 종료시 까지 적 전체의 속도 100% 다운" 옵션이 엑시구레ㅣ 회피 탱킹에 도움을 주긴 합니다만,</p>
+                <p>엑코코의 약점뎀증, 엑시구레의 크뎀 +50%의 SB-천각어빌 효과를 못받는건 꽤나 아깝게 느껴집니다</p>
+                <p>추가로, 위 파티에서 물리저항깎의 부재는 살짝 아쉽긴 하네요</p>
             </div>
         </details>
-
-        <h2>
-            <span class="icon">⚔️</span> #2 : 풍속성 파티 서브딜러
-        </h2>
-        <p>서브딜러로 활용할 경우, <strong>명 수치 80 이상</strong>을 권장합니다.</p>
-        
+        <h2><span class="icon">⚔️</span> #2 : 풍속팟 서브딜러</h2>
+        <p>이 경우, 명수치 80 이상 권장</p>
         <details>
             <summary>AS낫잡이 시연영상 #2 - 풍속팟 서브딜러</summary>
             <div class="video-content">
-                <p style="color:#777;">(영상 링크가 여기에 표시됩니다.)</p>
-                <div class="highlight-box">
-                    <p><strong>코멘트:</strong></p>
-                    <p>서브딜러로 활용 가능하지만, 탄탄한 버프와 심기일체를 걸어주어도 비어포 상황에서 고점을 뽑기는 쉽지 않았습니다. 명 80 이상일 때 장비하는 <strong>"토르멘타 하르페"</strong>(풍속성 저항 및 크리티컬 데미지 35% 증가)로 어느 정도 보완이 가능합니다.</p>
-                    <p>하지만 <strong>어나더포스 상황에서는 매우 훌륭한 메인딜러</strong>가 될 수 있습니다!</p>
+                <div class="highlight-box level-1">
+                    <p><strong>코멘트 :</strong></p>
+                    <p>서브딜러로도 활용이 가능하지만, 기초 버프를 탄탄하게 챙기고 심기일체까지 걸어주었지만, 비어포에서 고점 뽑기는 쉽지 않았습니다</p>
+                    <p>명80 이상일때 풍속깎 & 크뎀 35% 주는 "토르멘타 하르페" 를 넣으시면 어느정도 보완이 될거예요</p>
+                    <p>하지만 어나더포스 상황에서는 매우 훌륭한 메인딜러가 될 수 있겠습니다!</p>
                 </div>
             </div>
         </details>
-
         <hr>
-
-        <h2>
-            <span class="icon">🤔</span> 그래서 AS 낫잡이, 좋은가?
-        </h2>
-        <p>다양한 유틸(개전 페인 부여, 매 턴 풍왕진 전개 어빌리티 등)과 <strong>존 파괴</strong>라는 독특한 세일즈 포인트, 그리고 딜러로도 활용 가능한 <strong>다재다능한 캐릭터</strong>입니다. 특히 기존 풍속성 파티에서 절실했던 <strong>날리기 무효</strong>를 제공하는 것만으로도 충분한 메리트가 있습니다.</p>
-        <div class="final-verdict">
-            <p>그래도 이 친구가 없어도 게임 진행에 아무 문제가 없으니,<br><strong>무조건 얻어야 할 필수 캐릭터는 아니라고 판단됩니다.</strong></p>
-            <p>사용처가 다소 제한적이고 풍속성(or 베기) 파티 의존도가 높아, <strong>성도 각성 우선도 역시 높은 편은 아닙니다.</strong></p>
+        <h2><span class="icon">🤔</span> 그래서 AS 낫잡이 좋음??</h2>
+        <p>다양한 유틸과<br>( 개전 페인부여도 있음 )<br>( 유나처럼, 매턴 시작시 풍왕진을 전개하는 어빌 보유 )<br>존파괴 라는 독특한 세일즈 포인트, 그리고 딜러로도 활용이 가능해서 다재다능한 아이인것 같아요</p>
+        <p>특히 기존 풍속팟에서 필요로하던 날리기무효, 그것만으로도 메리트가 있다고 보여집니다</p>
+        
+        <div class="highlight-box level-2">
+            <p>그래두 이친구 없어도 아무 문제 없으니 무리해서 얻어야 할 캐릭은 아니라고 판단됩니다</p>
+            <p>또한, 제한된 사용처 및<br>( 물론, 원하면 얼마든지 활용가능하긴 해요 )<br>풍속(or 베기) 파츠캐 요구도가 높아 성도각성 우선도 역시 떨어진다고 말씀드릴 수 있겠네요</p>
         </div>
 
-        <div class="highlight-box" style="margin-top: 40px; text-align: center; background-color: rgba(218, 112, 214, 0.1); border-color: #da70d6;">
-            <p><strong>근데 이쁘잖아요..</strong><br> 그리고.. "그 라비앙로즈 디저트 좋아하는 마계의 프린세스 고스로리 소녀"를 좋아하신다면..</p>
-            <p><strong>이거 못 참거든요..ㅎ</strong></p>
+        <div class="highlight-box level-2" style="text-align: center; border-color: #da70d6;">
+            <p>근데 이쁘잖아요..<br>그리구..<br>"그 라비앙로즈 디저트 좋아하는 마계의 프린세스 고스로리 소녀"<br>를 좋아하신다면 이거 못참거든요..ㅎ</p>
+            <p>아마 제가 말려도 이미 못참고 돌리셨을겁니다 ㅎㅎ</p>
         </div>
-
         <hr>
-
-        <h2>
-            <span class="icon">✨</span> 막간, es시구레 초미세먼지 팁
-        </h2>
-        <p><code>es시구레</code> 천(天) 수치 80 이상인 경우, 스킬 사용 순서가 중요합니다.</p>
-        <div class="highlight-box">
-            <p><strong>Case 1. 다른 아군이 심기일체를 걸어줄 때 (어포)</strong></p>
-            <p><code>열공아수라</code> → <code>파세의 기합</code> → <code>상뢰검무</code>, SB 발동 시 <code>보현일도류 언</code> 사용 후 <code>파세의 기합</code>으로 마무리.</p>
-            <br>
-            <p><strong>Case 2. 본인이 직접 심기일체를 걸어야 할 때 (어포)</strong></p>
-            <p><code>열공아수라</code> → <code>변완의 형 인왕</code> → <code>상뢰검무</code>, SB 발동 시 <code>파세의 기합</code> 사용.</p>
+        <h2><span class="icon">✨</span> 막간, es시구레 초미세먼지 팁</h2>
+        <p>엑시구레 천80 이상인 경우</p>
+        <div class="highlight-box level-1">
+            <p style="font-size: 16px; font-weight: 400; color: #555;">es시구레 셋팅 예시 (엘피스 무기는 어스타가 낀다고 가정) (탱킹 셋팅에서는 비취결정의 도 (재가공) 추천)</p>
+            <p>es시구레는 스킬 사용하는 순서가 중요합니다.</p>
+            <p>심기일체 버프를 대신 걸어줄 아군이 있다는 가정하에</p>
+            <p>어나더포스때 여유가 된다면, 열공아수라 -> 파세의 기합 -> 상뢰검무 쓰시고, 어포도중에 켜는 SB때 "보현일도류 언" 쓰고 "파세의 기합" 으로 마무리 하시면 좋습니다<br>(이때, 적이 베기공격만 한다면 "보현일도류 언" 은 안쓰셔도 무방합니다)<br>(해당턴에 회피 옵션을 어떻게든 리필해야 한다면, 어쩔수없이 SB-상뢰검무 써야죵 ㅎ)</p>
+            <p>만약, 본인이 직접 심기일체를 걸어야만 한다면 어포켜고 열공아수라 -> 변완의 형 인왕 -> 상뢰검무 쓰고, 어포도중에 켜는 SB때 "파세의 기합" 써주시면 됩니다<br>(이때, 적이 물리공격만 하면 파세의 기합 대신에 "보현일도류 언" 넣으셔도 OK)</p>
         </div>
-
     </div>
 </body>
 </html>
